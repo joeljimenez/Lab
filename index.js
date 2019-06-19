@@ -1,6 +1,6 @@
 'use strict'
 const path = require('path');
-const bodyP = require('body-parser');
+const body_parse  = require('body-parser');
 const express = require('express');
 
 const app = express();
@@ -11,7 +11,8 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // Enabling JSON bodyParser
-app.use(bodyP());
+app.use(body_parse.urlencoded({ extended: false }));
+app.use(body_parse.json());
 
 // Archivos estáticos
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -30,6 +31,19 @@ app.get('/Ejemplo_2', (req, res) => {
 
 app.get('/Ejemplo_3', (req, res) => {
     res.render('problema3.pug');
+});
+
+app.post('/Suma_Numeros', (req, res) => {
+    var data = req.body;
+
+        res.json({
+            'data' : data,
+            'exito': false,  
+        });
+    
+ 
+     
+
 });
 
 
