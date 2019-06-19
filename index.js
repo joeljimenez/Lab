@@ -20,6 +20,18 @@ app.get('/', (req, res) => {
     res.render('menu.pug');
 });
 
+app.get('/Ejemplo_1', (req, res) => {
+    res.render('problema1.pug');
+});
+
+app.get('/Ejemplo_2', (req, res) => {
+    res.render('problema2.pug');
+});
+
+app.get('/Ejemplo_3', (req, res) => {
+    res.render('problema3.pug');
+});
+
 
 app.listen(port, () => {
     console.log(`La aplicación esta ejecutando en el puerto:  ${port}!`);

@@ -2,18 +2,22 @@ extends base.pug
 
 block content
     h3.text-center Menu Principal
+    br
     .row
-        .col-lg-12
-            button.btn.btn-danger
-                |Suma de Numero
-        br
-        br
-        .col-lg-12
-            button.btn.btn-danger
-                |Suma de Numero
-        br
-        br 
-        .col-lg-12
-            button.btn.btn-danger
-                |Suma de Numero
+        .col-md-4.offset-md-4
+            .col-lg-12
+           
+                 a(href="/Ejemplo_1").btn.btn-danger.btn-block
+                    |Suma de Numero
+
+            br
+        
+            .col-lg-12
+                   a(href="/Ejemplo_2").btn.btn-success.btn-block
+                      |Suma Diagonal
+            br
+         
+            .col-lg-12
+                  a(href="/Ejemplo_3").btn.btn-warning.btn-block
+                      |Numeros Iguales
         
