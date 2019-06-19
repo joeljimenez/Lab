@@ -17,10 +17,10 @@ app.use(bodyP());
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.render('base.pug');
-  });
+    res.render('menu.pug');
+});
 
 
-  app.listen(port, () => {
+app.listen(port, () => {
     console.log(`La aplicación esta ejecutando en el puerto:  ${port}!`);
-  });
+});
