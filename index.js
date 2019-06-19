@@ -2,6 +2,7 @@
 const path = require('path');
 const body_parse  = require('body-parser');
 const express = require('express');
+const {suma_numero} = require('./operacion/ope');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -35,16 +36,16 @@ app.get('/Ejemplo_3', (req, res) => {
 
 app.post('/Suma_Numeros', (req, res) => {
     var data = req.body;
+    let cadena = data.numero;
 
-        res.json({
-            'data' : data,
-            'exito': false,  
-        });
-    
- 
-     
+   var suma = suma_numero(cadena);
 
-});
+         res.json({
+             'suma' : suma,
+             'cadena':cadena,
+             'exito': true,  
+         });
+ });
 
 
 app.listen(port, () => {

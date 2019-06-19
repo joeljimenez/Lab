@@ -3,15 +3,17 @@
       Data: {},
       Controls:{
         numero : document.querySelector('.numeros'),
-        calcular: document.querySelector('.calcular')
+        calcular: document.querySelector('.calcular'),
+        limpiar: document.querySelector('.limpiar'),
+        suma: document.querySelector('.suma'),
+        cadena: document.querySelector('.cadena'), 
+        
       },
       Handlers: {
         OnClick :function(event){
             event.preventDefault();
             var data = App.Controls.numero.value;
-            if(data == ''){
-               data = null;
-            }
+            
             $.ajax({
                 type:'POST',
                 url:'/Suma_Numeros',
@@ -19,21 +21,36 @@
                     numero:data
                 }
  
-            }).then(App.Handlers.onFormSubmitSuccess)
-                .catch(App.Handlers.onFormSubmitError);
+            }).then( function(data){
+            if(data.suma != null){
+              App.Controls.cadena.innerHTML = `La Cadena Ingresada es : ${data.cadena}`;
+              App.Controls.suma.innerHTML = `La Suma es: ${data.suma}`;
+            }else{
+              App.Controls.cadena.innerHTML = `Ingrese Numeros`; 
+              App.Controls.suma.innerHTML = ` `;
+            }
+             
+                console.log(data);
+            } )
+                .catch(
+                  function(error) {
+                    App.Controls.cadena.innerHTML = error;
+                  }
+                 );
             console.log(event);
         },
-        onFormSubmitSuccess: function(resp){
-            console.log(resp);
-          },
-          onFormSubmitError: function(err){
-            console.log(err);
-          },
+        OnClear:function(){
+          App.Controls.numero.value = '';
+          App.Controls.cadena.innerHTML = ``;
+          App.Controls.suma.innerHTML = ``;
+        },
+ 
       },
       Methods: {
         init: function(){
           App.Methods.initExceptions();
          App.Methods.OnCalcular();
+         App.Methods.OnClear();
         },
         initExceptions: function(){
           App.Exceptions.UserException.prototype.toString = function(){
@@ -43,6 +60,9 @@
         OnCalcular: function(){
            App.Controls.calcular.addEventListener('click',App.Handlers.OnClick)
         },
+        OnClear : function(){
+          App.Controls.limpiar.addEventListener('click', App.Handlers.OnClear);
+        }
       },
       Events: {},
       Helpers: {},
