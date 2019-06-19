@@ -1,4 +1,32 @@
 extends base.pug
 
 block content
-    h1.text-center Numeros Repetidos
+    h1.text-center Numeros Repetidos 
+        .row
+            .col-md-4.offset-md-4.card
+                 .col-lg-12
+                    br
+                    
+                    input.form-control.numeros(placeholder='Tamaño Arreglo', type='number')
+                    br
+                    .row    
+                        .col-lg-6
+                            a(href="/").btn.btn-outline-danger.btn-block
+                                |Atras
+                        .col-lg-6
+                            button.btn.btn-outline-success.btn-block.calcular
+                                |Crear
+                        br
+                        .col-lg-12
+                            button.btn.btn-outline-warning.btn-block.limpiar
+                                |Limpiar
+
+                    br
+        br
+        .row
+            .col-md-8.offset-md-2
+                
+                    h6.cadena
+                    h6.suma
+block extra_js
+    script(src="/public/vendors/script/ejemplo_3.js")

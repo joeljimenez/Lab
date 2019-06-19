@@ -34,7 +34,7 @@ app.get('/Ejemplo_3', (req, res) => {
     res.render('problema3.pug');
 });
 
-app.post('/Suma_Numeros', (req, res) => {
+app.post('/api/Suma_Numeros', (req, res) => {
     var data = req.body;
     let cadena = data.numero;
 
@@ -45,6 +45,12 @@ app.post('/Suma_Numeros', (req, res) => {
              'cadena':cadena,
              'exito': true,  
          });
+ });
+
+ app.post('/api/Suma_Diagonal', (req, res) => {
+    var data = req.body;
+    let cadena = data.numero;
+ 
  });
 
 
