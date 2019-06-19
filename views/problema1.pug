@@ -2,3 +2,12 @@ extends base.pug
 
 block content
     h1.text-center Suma Numeros
+        .row
+            .col-md-4.offset-md-4.card
+                 .col-lg-12
+                    br
+                    input.form-control.numeros(placeholder='Valores Numericos', type='text')
+                    br
+                    button.btn.btn-outline-success.btn-block.calcular
+                            |Calcular
+                    br
