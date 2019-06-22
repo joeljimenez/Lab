@@ -17,7 +17,7 @@
 
                 $.ajax({
                         type: 'POST',
-                        url: '/api/Suma_Diagonal',
+                        url: '/api/Pares_matriz',
                         data: {
                             numero: tama
                         }
@@ -29,13 +29,10 @@
 
                             App.Methods.imprimir_arreglo(data.resp.cadena, tama);
                             App.Controls.cadena.innerHTML = `El arreglo ${tama} X ${tama}`;
-                            App.Controls.suma.innerHTML = `La Suma de la Diagonal es: ${ data.resp.suma }
-                                            `;
+                            App.Controls.suma.innerHTML = `En la Matriz tiene : ${ data.resp.contador } Pares`;
                         } else {
-                            App.Controls.cadena.innerHTML = `
-                                            Ingrese Numeros `;
-                            App.Controls.suma.innerHTML = `
-                                            `;
+                            App.Controls.cadena.innerHTML = `Ingrese Numeros `;
+                            App.Controls.suma.innerHTML = ``;
                             App.Controls.resultado.innerHTML = '';
 
                         }
@@ -52,10 +49,8 @@
             OnClear: function() {
                 App.Controls.numero.value = '';
                 App.Controls.resultado.innerHTML = '';
-                App.Controls.cadena.innerHTML = `
-                                            `;
-                App.Controls.suma.innerHTML = `
-                                            `;
+                App.Controls.cadena.innerHTML = ``;
+                App.Controls.suma.innerHTML = ``;
             },
 
         },
@@ -67,8 +62,7 @@
             },
             initExceptions: function() {
                 App.Exceptions.UserException.prototype.toString = function() {
-                    return ` [$ { this.date }] $ { this.name }: $ { this.message }
-                                            `;
+                    return ` [${ this.date }] ${ this.name }: ${ this.message }`;
                 };
             },
             OnCalcular: function() {
