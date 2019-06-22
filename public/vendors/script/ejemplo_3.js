@@ -24,14 +24,14 @@
 
                     }).then(function(data) {
                         console.log(data.resp);
-                        if (data.resp.suma != 0) {
+                        if (data.resp.contador != 0) {
                             App.Controls.resultado.innerHTML = '';
 
                             App.Methods.imprimir_arreglo(data.resp.cadena, tama);
                             App.Controls.cadena.innerHTML = `El arreglo ${tama} X ${tama}`;
                             App.Controls.suma.innerHTML = `En la Matriz tiene : ${ data.resp.contador } Pares`;
                         } else {
-                            App.Controls.cadena.innerHTML = `Ingrese Numeros `;
+                            App.Controls.cadena.innerHTML = `Ingrese Numero`;
                             App.Controls.suma.innerHTML = ``;
                             App.Controls.resultado.innerHTML = '';
 
